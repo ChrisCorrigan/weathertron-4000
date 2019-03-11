@@ -123,11 +123,11 @@ class Weathertron {
                     <div class="weathertron__date">${currentDay}</div>
                     <div class="weathertron__temp">
                         <span class="weathertron__temp-title">Low</span>
-                        <span class="weathertron__temp-value">${newLow}</span>
+                        <span class="weathertron__temp-value">${newLow.toFixed(0)}</span>
                     </div>
                     <div class="weathertron__temp">
                         <span class="weathertron__temp-title">High</span>
-                        <span class="weathertron__temp-value">${newHigh}</span>
+                        <span class="weathertron__temp-value">${newHigh.toFixed(0)}</span>
                     </div>
                 </article>
             `;

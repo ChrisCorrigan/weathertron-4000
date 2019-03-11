@@ -72,10 +72,16 @@
             font-size: rem(16px);
             font-family: $typeface-headings;
             color: $color-accent-muted;
+            @media (min-width: 560px) {
+                font-size: rem(18px);
+            }
         }
         &-text {
             display: flex;
             align-items: center;
+            @media (min-width: 560px) {
+                font-size: rem(18px);
+            }
             img {
                 margin-right: rem(6px);
             }
