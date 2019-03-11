@@ -15,6 +15,17 @@
             font-size: rem(20px);
         }
     }
+    &__forecast {
+        position: absolute;
+        top: rem(10px);
+        right: rem(10px);
+        font-style: italic;
+        font-size: rem(16px);
+        color: $color-accent-muted;
+        @media (min-width: 560px) {
+            font-size: rem(18px);
+        }
+    }
     &__city {
 
     }
@@ -52,5 +63,22 @@
 
         }
     }
-    
+    &__footer {
+        margin-top: rem(15px);
+    }
+    &__conditions {
+        &-title {
+            font-style: italic;
+            font-size: rem(16px);
+            font-family: $typeface-headings;
+            color: $color-accent-muted;
+        }
+        &-text {
+            display: flex;
+            align-items: center;
+            img {
+                margin-right: rem(6px);
+            }
+        }
+    }
 }

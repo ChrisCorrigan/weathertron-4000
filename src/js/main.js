@@ -6,8 +6,10 @@ class Weathertron {
         this.country = country;
         this.units = units;
         this.dataURL = "http://api.openweathermap.org/data/2.5/forecast?q=";
+        this.dataWeatherURL = "http://api.openweathermap.org/data/2.5/weather?q=";
         this.weatherAPIKey = "bc69bb3df7145ba16fd41ae7f0a036fb";
         this.startURL = this.dataURL + this.city + "," + this.country + "&units=" + this.units + "&APPID=" + this.weatherAPIKey;
+        this.startWeatherURL = this.dataWeatherURL + this.city + "," + this.country + "&units=" + this.units + "&APPID=" + this.weatherAPIKey;
         this.weatherDataPoints = [];
         this.forecastElems = [];
         this.insertLocation = insertLocation;
@@ -18,6 +20,17 @@ class Weathertron {
             const response = await fetch(dataURL);
             const jsonData = await response.json();
             return jsonData;
+        } catch(error) {
+            console.log(error);
+            // alert('Error loading data, see console for details');
+        }
+    }
+
+    async fetchWeatherData (dataWeatherURL) {
+        try {
+            const responseWeather = await fetch(dataWeatherURL);
+            const jsonWeatherData = await responseWeather.json();
+            return jsonWeatherData;
         } catch(error) {
             console.log(error);
             // alert('Error loading data, see console for details');
@@ -50,7 +63,10 @@ class Weathertron {
         }
     }
 
-    buildComponent(weatherData) {
+    buildComponent(weatherData, weatherDayData) {
+        console.log('weatherData: ', weatherData);
+        console.log('weatherDayData: ', weatherDayData);
+
         this.weatherDataPoints = weatherData.list;
 
         // setup an array of 5 days including today. For each day, step through each temperature data point in the
@@ -64,6 +80,14 @@ class Weathertron {
             }            
         }
 
+        // day's weather data
+        const weatherID = weatherDayData.weather[0].id;
+        const weather = weatherDayData.weather[0].main;
+        const weatherDescription = weatherDayData.weather[0].description;
+        const weatherIcon = weatherDayData.weather[0].icon;
+
+
+        // data for weather every 3 hours over entire 5 days
         let currentDate = new Date();
         let currentDay = 0;
         let dataPointDate;
@@ -115,9 +139,17 @@ class Weathertron {
                 <section class="weathertron__header">
                     <span class="weathertron__city">${this.city}</span>
                     <span class="weathertron__country">${this.country}</span>
+                    <span class="weathertron__forecast">5 day forecast</span>
                 </section>
                 <section class="weathertron__body">
                     ${this.forecastElems.join('')}
+                </section>
+                <section class="weathertron__footer">
+                    <div class="weathertron__conditions-title">Current conditions:</div>
+                    <div class="weathertron__conditions-text">
+                        <img src="http://openweathermap.org/img/w/${weatherIcon}.png">
+                        <span>${weather} | ${weatherDescription}</span>
+                    </div>
                 </section>
             </div>
         `;
@@ -130,9 +162,17 @@ class Weathertron {
     init() {
         // fetch data
         const getData = this.fetchData(this.startURL); // returns a promise
+        const objContext = this;
+
+        function getNextData(jsonData) {
+            const getWeatherData = objContext.fetchWeatherData(objContext.startWeatherURL); // returns a promise
+            getWeatherData.then (jsonWeatherData => objContext.buildComponent(jsonData, jsonWeatherData));
+        }
 
         // once data arrives, continue on to building component
-        getData.then (jsonData => this.buildComponent(jsonData));
+        // getData.then (jsonData => this.buildComponent(jsonData));
+        getData.then (jsonData => getNextData(jsonData));
+
     }
 }
 
