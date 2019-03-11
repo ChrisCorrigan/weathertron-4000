@@ -93,6 +93,7 @@ class Weathertron {
         let dataPointDate;
         let newLow = 0;
         let newHigh = 0;
+        const unitLetter = this.units === "metric" ? "C" : "F";
         let forecastElem;
         let newDate = true;
         for (const forecastDay of forecastDays) {
@@ -123,11 +124,11 @@ class Weathertron {
                     <div class="weathertron__date">${currentDay}</div>
                     <div class="weathertron__temp">
                         <span class="weathertron__temp-title">Low</span>
-                        <span class="weathertron__temp-value">${newLow.toFixed(0)}</span>
+                        <span class="weathertron__temp-value">${newLow.toFixed(0)} ${unitLetter}</span>
                     </div>
                     <div class="weathertron__temp">
                         <span class="weathertron__temp-title">High</span>
-                        <span class="weathertron__temp-value">${newHigh.toFixed(0)}</span>
+                        <span class="weathertron__temp-value">${newHigh.toFixed(0)} ${unitLetter}</span>
                     </div>
                 </article>
             `;
