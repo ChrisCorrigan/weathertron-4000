@@ -4,7 +4,7 @@
 
 .header {
     padding: rem(18px 20px);
-    background-color: $color-accent;
+    background-color: $color-accent-muted;
     text-align: center;
     box-shadow: inset 0px 0px 25px rgba(0,0,0,0.2);
     @media (min-width: 560px) {
@@ -52,6 +52,8 @@
     }
 }
 .content {
+    max-width: 900px;
+    margin: 0 auto;
     padding: rem(10px 14px);
     @media (min-width: 560px) {
         padding: rem(14px 20px);

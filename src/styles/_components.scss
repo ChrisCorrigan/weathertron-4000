@@ -7,12 +7,12 @@
 .weathertron {
     &__header {
         font-family: $typeface-headings;
-        font-size: rem(16px);
-        color: $color-peaceful;
+        font-size: rem(18px);
+        color: $color-brand;
         margin-bottom: rem(6px);
         @media (min-width: 560px) {
             margin-bottom: rem(10px);
-            font-size: rem(18px);
+            font-size: rem(20px);
         }
     }
     &__city {
@@ -23,16 +23,28 @@
     }
     &__body {
         display: flex;
-        justify-content: space-evenly;
+        justify-content: space-between;
         font-size: rem(15px);
         @media (min-width: 560px) {
             font-size: rem(18px);
+            justify-content: space-evenly;
         }
     }
     &__day {
 
     }
+    &__date {
+        font-size: rem(16px);
+        color: $color-accent;
+        @media (min-width: 560px) {
+            font-size: rem(20px);
+        }
+    }
     &__temp {
+        font-size: rem(14px);
+        @media (min-width: 560px) {
+            font-size: rem(18px);
+        }
         &-title {
 
         }
