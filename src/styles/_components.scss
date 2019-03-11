@@ -1,0 +1,44 @@
+.weather-component {
+    position: relative;
+    border-radius: 4px;
+    box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.2);
+    padding: rem(10px 14px);
+}
+.weathertron {
+    &__header {
+        font-family: $typeface-headings;
+        font-size: rem(16px);
+        color: $color-peaceful;
+        margin-bottom: rem(6px);
+        @media (min-width: 560px) {
+            margin-bottom: rem(10px);
+            font-size: rem(18px);
+        }
+    }
+    &__city {
+
+    }
+    &__country {
+        font-size: rem(16px);
+    }
+    &__body {
+        display: flex;
+        justify-content: space-evenly;
+        font-size: rem(15px);
+        @media (min-width: 560px) {
+            font-size: rem(18px);
+        }
+    }
+    &__day {
+
+    }
+    &__temp {
+        &-title {
+
+        }
+        &-value {
+
+        }
+    }
+    
+}

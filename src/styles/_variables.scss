@@ -1,0 +1,34 @@
+/* colour pallete */
+$color-brand: #1e434c;
+$color-accent: #c99e10;
+$color-accent-muted: #ddc883;
+$color-peaceful: #9b4f0f;
+$color-muted: #6c8a91;
+
+$color-dark: #062c34;
+$color-dark-faded: #6c858b;
+
+$color-border: #798588;
+$color-background: #dde3e4;
+$color-bg: #dde3e4;
+$color-bg-light: #ffffff;
+
+$color-text: #062c34;
+$color-text-light: #fff;
+$color-text-muted: #6c858b;
+$color-text-dark: #000;
+
+$color-positive: #39a30a;
+$color-negative: #a61701;
+
+/* shortcuts for breakpoints */
+$bp-xs: 560px;
+$bp-s: 768px;
+$bp-m: 1024px;
+$bp-l: 1240px;
+
+/* fonts */
+@import url('https://fonts.googleapis.com/css?family=Electrolize|PT+Sans+Narrow:400,700');
+
+$typeface-copy: 'PT Sans Narrow', sans-serif;
+$typeface-headings: 'Electrolize', sans-serif;

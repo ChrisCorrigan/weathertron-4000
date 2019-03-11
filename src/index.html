@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Weathertron 4000 component demo</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="styling-framework.css">
+    <!-- <link rel="stylesheet" href="<%=htmlWebpackPlugin.files.chunks.main.css %>"> -->
+</head>
+    <body>
+        <div class="page">
+
+            <section class="header">
+                <h1 class="header__title">Weathertron 4000 component <em>-</em> <span>Demo page</span></h1>
+                <p class="header__slogan">by Chris Corrigan | <a href="https://www.linkedin.com/in/corriganchris" target="_blank">linkedin.com/in/corriganchris</a></p>
+            </section>
+
+            <section class="content">
+                <h2>Vancouver, BC, Canada</h2>
+                <p>Here is your 5 day forecast for Vancouver, Canada</p>
+                <p>This is an example of inserting the Weathertron 4000 component into a web page, and passing it data attributes to instantiate it. 
+                    Configuration options include city, country, temperature unit, and how the component gets inserted into your DOM element.</p>
+                <div class="weather-component" 
+                    data-component="weathertron" 
+                    data-start-city="Vancouver" 
+                    data-start-country="CA" 
+                    data-start-units="metric" 
+                    data-insert-location="afterbegin" 
+                ></div>
+            </section>
+
+            <section class="content">
+                <h2>Atlanta, USA</h2>
+                <p>Here we've added the component again, passing it different information for Atlanta, USA.</p>
+                <div class="weather-component" 
+                    data-component="weathertron" 
+                    data-start-city="Atlanta" 
+                    data-start-country="US" 
+                    data-start-units="imperial" 
+                    data-insert-location="afterbegin" 
+                ></div>
+            </section>
+
+            <section class="content">
+                <h2>Melbourne, Australia</h2>
+                <p>And a third one, this time for Melbourne, Australia.</p>
+                <div class="weather-component" 
+                    data-component="weathertron" 
+                    data-start-city="Melbourne" 
+                    data-start-country="AU" 
+                    data-start-units="metric" 
+                    data-insert-location="afterbegin" 
+                ></div>
+            </section>
+
+        </div>
+        
+        <script src="<%= htmlWebpackPlugin.files.chunks.main.entry %>"></script>
+    </body>
+</html>
