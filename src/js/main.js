@@ -64,9 +64,6 @@ class Weathertron {
     }
 
     buildComponent(weatherData, weatherDayData) {
-        console.log('weatherData: ', weatherData);
-        console.log('weatherDayData: ', weatherDayData);
-
         this.weatherDataPoints = weatherData.list;
 
         // setup an array of 5 days including today. For each day, step through each temperature data point in the
@@ -167,13 +164,13 @@ class Weathertron {
 
         function getNextData(jsonData) {
             const getWeatherData = objContext.fetchWeatherData(objContext.startWeatherURL); // returns a promise
+
+            // once data arrives, continue on to building component
             getWeatherData.then (jsonWeatherData => objContext.buildComponent(jsonData, jsonWeatherData));
         }
 
-        // once data arrives, continue on to building component
-        // getData.then (jsonData => this.buildComponent(jsonData));
+        // once data arrives, get 2nd set of data, pass in 1st set so we can forward it as well to the build step
         getData.then (jsonData => getNextData(jsonData));
-
     }
 }
 
